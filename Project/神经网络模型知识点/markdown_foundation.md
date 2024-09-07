@@ -1,4 +1,4 @@
-# markdown
+# markdown foundation
 #### （1）分割线  
 和word一样，直接打三个“***”或“---”然后回车即可实现分割线  
 ***
