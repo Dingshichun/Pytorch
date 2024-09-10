@@ -47,9 +47,6 @@
 
 * 使用validation文件时，注意确保你的验证集或者测试集中必须包含每个类别的目标，并且使用时只需要修改`--num-classes`、`--data-path`和`--weights`即可，其他代码尽量不要改动
 
-## 使用U-Net在DRIVE数据集上训练得到的权重(仅供测试使用)
-- 链接: https://pan.baidu.com/s/1BOqkEpgt1XRqziyc941Hcw  密码: p50a
-
 ## 如果对U-Net网络不了解的可参考bilibili
 * [https://www.bilibili.com/video/BV1Vq4y127fB/](https://www.bilibili.com/video/BV1Vq4y127fB/)
 
