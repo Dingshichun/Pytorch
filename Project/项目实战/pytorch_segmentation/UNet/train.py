@@ -205,7 +205,7 @@ def parse_args():
 
     parser = argparse.ArgumentParser(description="pytorch unet training")
 
-    parser.add_argument("--data-path", default="../data_set/DRIVE", help="DRIVE root")
+    parser.add_argument("--data-path", default="./data_set/DRIVE", help="DRIVE root")
     # exclude background
     parser.add_argument("--num-classes", default=1, type=int)
     parser.add_argument("--device", default="cuda", help="training device")
