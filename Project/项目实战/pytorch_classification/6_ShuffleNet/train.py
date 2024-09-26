@@ -111,13 +111,13 @@ def main(args):
     optimizer = optim.SGD(pg, lr=args.lr, momentum=0.9, weight_decay=4e-5)
     # Scheduler https://arxiv.org/pdf/1812.01187.pdf
     lf = (
-        lambda x: ((1 + math.cos(x * math.pi / args.epoches)) / 2) * (1 - args.lrf)
+        lambda x: ((1 + math.cos(x * math.pi / args.epochs)) / 2) * (1 - args.lrf)
         + args.lrf
     )  # cosine
     scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=lf)
 
     # epoch的范围是(1, args.epochs)
-    for epoch in range(1, args.epoches + 1):
+    for epoch in range(1, args.epochs + 1):
         # train
         mean_loss = train_one_epoch(
             model=model,
@@ -139,14 +139,14 @@ def main(args):
         tb_writer.add_scalar(tags[2], optimizer.param_groups[0]["lr"], epoch)
 
         # 只保存中间和最后一个epoch训练的模型
-        if epoch % (args.epoches / 2) == 0:
+        if epoch % (args.epochs / 2) == 0:
             torch.save(model.state_dict(), "./weights/model-{}.pth".format(epoch))
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--num_classes", type=int, default=5)
-    parser.add_argument("--epoches", type=int, default=4)
+    parser.add_argument("--epochs", type=int, default=4)
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--lr", type=float, default=0.01)
     parser.add_argument("--lrf", type=float, default=0.1)
